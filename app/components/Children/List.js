@@ -9,8 +9,14 @@ export default class List extends React.Component{
 		}
 	}
 	render(){
-		return <div className="list">
-			<Task tasks={this.state.tasks} />
-		</div>
+		return (
+			<div className="list">
+			{this.state.tasks.map((task, i)=>{
+				return (
+					<Task task={task} key={i} />
+					)
+			})}
+			</div>
+		)
 	}
 }

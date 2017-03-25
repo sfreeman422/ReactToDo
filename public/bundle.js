@@ -10102,7 +10102,9 @@ var List = function (_React$Component) {
 			return _react2.default.createElement(
 				'div',
 				{ className: 'list' },
-				_react2.default.createElement(_Task2.default, { tasks: this.state.tasks })
+				this.state.tasks.map(function (task, i) {
+					return _react2.default.createElement(_Task2.default, { task: task, key: i });
+				})
 			);
 		}
 	}]);
@@ -10155,12 +10157,7 @@ var Task = function (_React$Component) {
 				_react2.default.createElement(
 					"p",
 					null,
-					"WTF?"
-				),
-				_react2.default.createElement(
-					"p",
-					null,
-					this.props.tasks
+					this.props.task
 				)
 			);
 		}

@@ -7,8 +7,7 @@ export default class Task extends React.Component{
 	render(){
 		return(
 		<div className="row" id="task">
-			<p>WTF?</p>
-			<p>{this.props.tasks}</p>
+			<p>{this.props.task}</p>
 		</div>
 		)
 	}
