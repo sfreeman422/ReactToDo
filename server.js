@@ -2,7 +2,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
 const methodOverride = require('method-override');
+const Sequelize = require('sequelize');
 
+//Instantiate express and port. 
 const app = express();
 const PORT = process.env.PORT || 3000; 
 
