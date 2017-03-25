@@ -5,7 +5,8 @@ export default class Entry extends React.Component{
 		super();
 	}
 	render(){
-		return <div className="entry">
+		return (
+		<div className="row" id="entry">
 			<input type="text" data-toggle="collapse" data-target="#options" aria-expanded="false" aria-controls="collapse" />
 			<div className="collapse" id="options">
 				<div className="col-xs-offset-4 col-xs-4 text-center well">
@@ -15,5 +16,6 @@ export default class Entry extends React.Component{
 				</div>
 			</div>
 		</div>
+			) 
 	}
 }

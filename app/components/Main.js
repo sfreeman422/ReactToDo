@@ -8,11 +8,13 @@ export default class Main extends React.Component{
 		super();
 	}
 	render(){
-		return <div className="container">
+		return(
+		<div className="container">
 			<div className="col-xs-12">
 				<Entry />
 				<List />
 			</div>
 		</div>
+			) 
 	}
 }

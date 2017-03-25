@@ -10019,7 +10019,7 @@ var Entry = function (_React$Component) {
 		value: function render() {
 			return _react2.default.createElement(
 				"div",
-				{ className: "entry" },
+				{ className: "row", id: "entry" },
 				_react2.default.createElement("input", { type: "text", "data-toggle": "collapse", "data-target": "#options", "aria-expanded": "false", "aria-controls": "collapse" }),
 				_react2.default.createElement(
 					"div",
@@ -10143,10 +10143,7 @@ var Task = function (_React$Component) {
 	function Task(props) {
 		_classCallCheck(this, Task);
 
-		var _this = _possibleConstructorReturn(this, (Task.__proto__ || Object.getPrototypeOf(Task)).call(this, props));
-
-		console.log(_this.props);
-		return _this;
+		return _possibleConstructorReturn(this, (Task.__proto__ || Object.getPrototypeOf(Task)).call(this, props));
 	}
 
 	_createClass(Task, [{
@@ -10154,11 +10151,16 @@ var Task = function (_React$Component) {
 		value: function render() {
 			return _react2.default.createElement(
 				"div",
-				{ className: "task" },
+				{ className: "row", id: "task" },
 				_react2.default.createElement(
 					"p",
 					null,
 					"WTF?"
+				),
+				_react2.default.createElement(
+					"p",
+					null,
+					this.props.tasks
 				)
 			);
 		}
