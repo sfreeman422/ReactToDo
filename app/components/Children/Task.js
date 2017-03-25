@@ -6,9 +6,11 @@ export default class Task extends React.Component{
 	}
 	render(){
 		return(
-		<div className="row" id="task">
-			<p>{this.props.task}</p>
-		</div>
+			<div className="row col-xs-offset-4 col-xs-4">
+				<div id="task">
+					<p className="taskName">{this.props.task}</p>
+				</div>
+			</div>
 		)
 	}
 }

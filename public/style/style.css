@@ -10,3 +10,12 @@
 .well{
 	display: hidden;
 }
+#task{
+	background-color: grey;
+	margin: .5% 0%;
+	padding: 1%;
+}
+.taskName{
+	text-align: left;
+	color: white;
+}

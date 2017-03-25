@@ -10153,11 +10153,15 @@ var Task = function (_React$Component) {
 		value: function render() {
 			return _react2.default.createElement(
 				"div",
-				{ className: "row", id: "task" },
+				{ className: "row col-xs-offset-4 col-xs-4" },
 				_react2.default.createElement(
-					"p",
-					null,
-					this.props.task
+					"div",
+					{ id: "task" },
+					_react2.default.createElement(
+						"p",
+						{ className: "taskName" },
+						this.props.task
+					)
 				)
 			);
 		}

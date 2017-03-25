@@ -14,7 +14,7 @@ export default class List extends React.Component{
 			{this.state.tasks.map((task, i)=>{
 				return (
 					<Task task={task} key={i} />
-					)
+				)
 			})}
 			</div>
 		)
