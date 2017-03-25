@@ -8,8 +8,10 @@ export default class Entry extends React.Component{
 		return <div className="entry">
 			<input type="text" data-toggle="collapse" data-target="#options" aria-expanded="false" aria-controls="collapse" />
 			<div className="collapse" id="options">
-				<div className="well">
-					Options go here. 
+				<div className="col-xs-offset-4 col-xs-4 text-center well">
+					<p>Use Pomodoro?</p> 
+					<p>Due date?</p>
+					<p>Other Options</p>
 				</div>
 			</div>
 		</div>
