@@ -9,13 +9,27 @@
 }
 .well{
 	display: hidden;
+	margin-top: 1%;
 }
 #task{
-	background-color: grey;
+	background-color: #00312C;
 	margin: .5% 0%;
 	padding: 1%;
 }
 .taskName{
 	text-align: left;
+	color: white;
+}
+
+#entry{
+	margin-bottom: 1%;
+}
+#message{
+	color: white;
+}
+body{
+	background-color: #004039;
+}
+h1{
 	color: white;
 }
