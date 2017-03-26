@@ -7,7 +7,7 @@ var passport = require('passport');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var db = require('./config/database.js');
-
+var routes = require('./app/routes/routes.js');
 var sequelize = new Sequelize(db.database, db.user, db.password, {
 	host: db.hostname,
 	dialect: db.dialect
@@ -28,14 +28,15 @@ var app = express();
 var PORT = process.env.PORT || 3000; 
 
 app.use(logger('dev'));
+app.use(cookieParser());
 app.use(bodyParser());
 app.use(express.static('./public'));
 app.use(methodOverride('_method'));
+app.use(session({secret: 'pomotodo'}));
+app.use(passport.initialize());
+app.use(passport.session());
+routes(app, passport);//Load our auth routes into express/passport.  
 
-//Initial route to load the page for the Timer, weather information, etc. 
-app.get('/', function(req, res){
-	res.sendFile('./public/index.html');
-});
 //Listen to the port.
 app.listen(PORT, function(){
 	console.log('listening on port '+PORT);
