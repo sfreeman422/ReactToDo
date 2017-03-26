@@ -10,11 +10,13 @@ export default class Main extends React.Component{
 	render(){
 		return(
 		<div className="container">
-			<div className="col-xs-12">
-				<h1>Pomotodo</h1>
-				<p id="message">A Pomodoro Based To Do List</p>
-				<Entry />
-				<List />
+			<div className="row">
+				<div className="col-xs-12">
+					<h1>Pomotodo</h1>
+					<p id="message">A Pomodoro Based To Do List</p>
+					<Entry />
+					<List />
+				</div>
 			</div>
 		</div>
 			) 

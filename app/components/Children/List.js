@@ -10,7 +10,7 @@ export default class List extends React.Component{
 	}
 	render(){
 		return (
-			<div className="list">
+			<div className="row" id="list">
 			{this.state.tasks.map((task, i)=>{
 				return (
 					<Task task={task} key={i} />
