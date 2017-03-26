@@ -1,5 +1,7 @@
 # dependencies
 /node_modules
+
+#remove bundle js
 ./public/bundle.js
 
 # misc
