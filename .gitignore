@@ -2,7 +2,7 @@
 /node_modules
 
 #remove bundle js
-./public/bundle.js
+/public/bundle.js
 
 # misc
 .DS_Store
