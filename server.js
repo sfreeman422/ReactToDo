@@ -4,6 +4,20 @@ const logger = require('morgan');
 const methodOverride = require('method-override');
 const Sequelize = require('sequelize');
 
+const sequelize = new Sequelize("todo", "root", "", {
+	host: 'localhost',
+	dialect: "mysql"
+});
+
+sequelize
+	.authenticate()
+	.then(function(err){
+		console.log("Connected to DB. ")
+	})
+	.catch(function(err){
+		console.log("Unable to connect: "+err);
+	})
+
 //Instantiate express and port. 
 const app = express();
 const PORT = process.env.PORT || 3000; 
