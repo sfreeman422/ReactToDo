@@ -9,6 +9,7 @@ const sequelize = new Sequelize("todo", "root", "", {
 	dialect: "mysql"
 });
 
+//Connect to our MySQL Database. 
 sequelize
 	.authenticate()
 	.then(function(err){
