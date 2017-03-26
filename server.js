@@ -1,12 +1,16 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const logger = require('morgan');
-const methodOverride = require('method-override');
-const Sequelize = require('sequelize');
+var express = require('express');
+var bodyParser = require('body-parser');
+var logger = require('morgan');
+var methodOverride = require('method-override');
+var Sequelize = require('sequelize');
+var passport = require('passport');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+var db = require('./config/database.js');
 
-const sequelize = new Sequelize("todo", "root", "", {
-	host: 'localhost',
-	dialect: "mysql"
+var sequelize = new Sequelize(db.database, db.user, db.password, {
+	host: db.hostname,
+	dialect: db.dialect
 });
 
 //Connect to our MySQL Database. 
@@ -20,8 +24,8 @@ sequelize
 	})
 
 //Instantiate express and port. 
-const app = express();
-const PORT = process.env.PORT || 3000; 
+var app = express();
+var PORT = process.env.PORT || 3000; 
 
 app.use(logger('dev'));
 app.use(bodyParser());
