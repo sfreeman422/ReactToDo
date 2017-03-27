@@ -4,6 +4,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!--Import Bootstrap CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Include the polyfill for Animatelo -->
+<script src="https://cdn.rawgit.com/web-animations/web-animations-js/2.2.2/web-animations.min.js"></script>
+<!-- Include Animatelo -->
+<script src="./js/animatelo.min.js"></script>
 <!--Import custom CSS -->
 <link rel="stylesheet" href="./style/style.css">
 </head>
@@ -19,5 +23,17 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!--React Bundle-->
 	<script src="bundle.js"></script>
+<!--Custom UI JS -->
+	<script>
+	//jQuery/Animatelo to animate the title/description
+		window.animatelo.bounce('#title');
+	//JQuery to cause the options to only hide/show on focus. 
+		$('#inputArea').focus(function(){
+			$('#options').collapse('show');
+		});
+		$('#inputArea').focusout(function(){
+			$('#options').collapse('hide');
+		})
+	</script>
 </body>
 </html>

@@ -12,7 +12,7 @@ export default class Main extends React.Component{
 		<div className="container">
 			<div className="row">
 				<div className="col-xs-12">
-					<h1>Pomotodo</h1>
+					<h1 id="title">Pomotodo</h1>
 					<p id="message">A Pomodoro Based To Do List</p>
 					<Entry />
 					<List />
