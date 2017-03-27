@@ -8,11 +8,16 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var db = require('./config/database.js');
 var routes = require('./app/routes/routes.js');
+var User = require('./app/models/User.js');
+var Task = require('./app/models/Task.js');
 var sequelize = new Sequelize(db.database, db.user, db.password, {
 	host: db.hostname,
 	dialect: db.dialect
 });
 
+//Imports the models into our sequelize instance. 
+User(sequelize, Sequelize);
+Task(sequelize, Sequelize);
 //Connect to our MySQL Database. 
 sequelize
 	.authenticate()

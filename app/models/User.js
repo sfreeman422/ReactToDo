@@ -1,40 +1,39 @@
 var bcrypt = require('bcrypt-nodejs');
-
-var userSchema = Sequelize.define('user',{
-	local:{
+module.exports = function(sequelize, Sequelize){
+	var User = sequelize.define('user',{
+		id: {
+			autoIncrement: true,
+			primaryKey: true, 
+			type: Sequelize.INTEGER
+		},
+		firstName: {
+			type: Sequelize.STRING,
+			notEmpty: true
+		},
+		lastName: {
+			type: Sequelize.STRING,
+			notEmpty: true
+		},
+		username: {
+			type: Sequelize.TEXT
+		},
 		email: {
-			type: Sequelize.STRING
+			type: Sequelize.STRING,
+			validate: {
+				isEmail: true
+			}
 		},
 		password: {
-			type: Sequelize.STRING
+			type: Sequelize.STRING,
+			allowNull: false
+		},
+		last_login: {
+			type: Sequelize.DATE
+		},
+		status: {
+			type: Sequelize.ENUM('active', 'inactive'),
+			defaultValue: 'active'
 		}
-	},
-	facebook: {
-		id: {
-			type: Sequelize.STRING
-		},
-		token: {
-			type: Sequelize.STRING
-		},
-		email: {
-			type: Sequelize.STRING
-		},
-		name: {
-			type: Sequelize.STRING
-		}
-	},
-	google: {
-		id: {
-			type: Sequelize.STRING
-		},
-		token: {
-			type: Sequelize.STRING
-		},
-		email: {
-			type: Sequelize.STRING
-		},
-		name: {
-			type: Sequelize.STRING
-		}
-	}
-});
+	});
+	return User; 
+}
