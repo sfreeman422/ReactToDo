@@ -25,8 +25,13 @@
 	<script src="bundle.js"></script>
 <!--Custom UI JS -->
 	<script>
+	//Hide the scrollbar
+		document.body.style.overflow = 'hidden';
 	//jQuery/Animatelo to animate the title/description
-		window.animatelo.bounce('#title');
+		window.animatelo.bounceInDown('#title');
+		window.animatelo.bounceInDown('#message');
+		window.animatelo.bounceInUp('#entry');
+		window.animatelo.bounceInUp('#list');
 	//JQuery to cause the options to only hide/show on focus. 
 		$('#inputArea').focus(function(){
 			$('#options').collapse('show');
