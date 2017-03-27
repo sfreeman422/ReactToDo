@@ -7,6 +7,7 @@ module.exports = function(app, passport){
 	//Post route for the entry of tasks
 	app.post('/api/task', function(req, res){
 		console.log(req.body);
+		res.end();
 	})
 
 }
