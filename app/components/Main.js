@@ -1,5 +1,5 @@
 import React from 'react';
-import {createStore} from 'redux';
+
 import Entry from './Children/Entry'
 import List from './Children/List'
 
