@@ -35,11 +35,13 @@
 	//JQuery to cause the options to only hide/show on focus. 
 		$('#inputArea').focus(function(){
 			$('#options').collapse('show');
-		});
-		$('#inputArea').focusout(function(){
-			$('#options').collapse('hide');
-			console.log($('#inputArea').val())
-		});
+    });
+  // Jquery to allow us to hide the #options when we click somewhere outside of it.
+		$('.verticalCenter').click(function(evt){
+      if (!$(evt.target).closest('#options').length > 0 && !$(evt.target).closest('#inputArea').length > 0){
+        $('#options').collapse('hide');
+      }
+    });
 	</script>
 </body>
 </html>
