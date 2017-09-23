@@ -3,6 +3,7 @@
 
 #remove bundle js
 /public/bundle.js
+/config
 
 # misc
 .DS_Store
