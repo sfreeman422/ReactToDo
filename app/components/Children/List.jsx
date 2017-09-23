@@ -1,6 +1,6 @@
 import React from 'react';
-import Task from './Task.jsx';
 import PropTypes from 'prop-types';
+import Task from './Task';
 
 const List = props => (
   <div className="row" id="list">

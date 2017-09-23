@@ -1,7 +1,6 @@
 import React from 'react';
-
-import Entry from './Children/Entry.jsx';
-import List from './Children/List.jsx';
+import Entry from './Children/Entry';
+import List from './Children/List';
 
 export default class Main extends React.Component {
   constructor() {
