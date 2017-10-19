@@ -1,4 +1,4 @@
-module.exports = function (app, passport) {
+module.exports = function routes(app, passport) {
   // Initial route to load the page.  
   app.get('/', (req, res) => {
     res.sendFile('../../public/index.html');
@@ -14,19 +14,19 @@ module.exports = function (app, passport) {
   // Post route for the entry of tasks
   app.post('/api/tasks', (req, res) => {
     console.log(req.body);
-    res.end();
+    res.send(200);
   });
 
   // Put route for update of tasks.
   app.put('/api/tasks', (req, res) => {
     console.log(req.body);
-    res.end();
+    res.send(200, 'Task successfully updated.');
   });
 
   // Delete route for deletion of tasks. 
   app.delete('/api/tasks', (req, res) => {
     console.log(req.body);
-    res.end();
+    res.end(202, `Task ${req.body.task.is} successfully removed.`);
   });
 };
 
