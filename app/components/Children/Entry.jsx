@@ -34,7 +34,9 @@ export default class Entry extends React.Component {
     this.setState({
       taskEntered: true,
     });
-    console.log(`Task would have been: ${this.state.value}`);
+    console.log(`Task would have been: ${this.state.taskName}`);
+    console.log(`Due Date: ${this.state.dueDate}`);
+    console.log(`Pomodoro: ${this.state.pomodoro}`);
     event.preventDefault();
   }
   render() {
@@ -52,16 +54,14 @@ export default class Entry extends React.Component {
             <input
               type="checkbox"
               id="dueDateTemp"
-              value="Due date?"
               onChange={this.handleChange}
             />
             <input
               type="checkbox"
               id="pomodoro"
-              value="Pomodoro?"
               onChange={this.handleChange}
             />
-            <button type="submit" value="Submit" />
+            <button type="submit" value="Submit" onClick={this.handleSubmit} />
           </div>
         </div>
       </div>
