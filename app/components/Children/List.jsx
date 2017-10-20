@@ -10,11 +10,4 @@ const List = props => (
   </div>
 );
 
-List.propTypes = {
-  tasks: PropTypes.Array,
-};
-
-List.defaultPropTypes = {
-  tasks: [],
-};
 export default List;

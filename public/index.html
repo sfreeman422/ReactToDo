@@ -36,6 +36,9 @@
 		$('#inputArea').focus(function(){
 			$('#options').collapse('show');
     });
+    $('#submit').click(function () {
+      $('#options').collapse('hide');
+    });
   // Jquery to allow us to hide the #options when we click somewhere outside of it.
 		$('.verticalCenter').click(function(evt){
       if (!$(evt.target).closest('#options').length > 0 && !$(evt.target).closest('#inputArea').length > 0){

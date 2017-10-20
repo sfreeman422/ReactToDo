@@ -4,10 +4,10 @@ export default class Entry extends React.Component {
   constructor() {
     super();
     this.state = {
-      taskName: 'Enter your task here',
+      taskName: '',
       pomodoro: false,
       dueDate: false,
-      taskEntered: false,
+      placeHolder: 'Enter your task here.',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -28,16 +28,18 @@ export default class Entry extends React.Component {
     }
   }
   handleSubmit(event) {
+    event.preventDefault();
     console.log('Making a call to /apis/tasks. POST');
     // If the response is a 200, then we set state. 
     // Report with the console.log what happened.
     this.setState({
-      taskEntered: true,
+      taskName: '',
+      pomodoro: false,
+      dueDate: false,
     });
     console.log(`Task would have been: ${this.state.taskName}`);
     console.log(`Due Date: ${this.state.dueDate}`);
     console.log(`Pomodoro: ${this.state.pomodoro}`);
-    event.preventDefault();
   }
   render() {
     return (
@@ -45,23 +47,27 @@ export default class Entry extends React.Component {
         <input
           type="text"
           id="inputArea"
-          placeholder={this.state.taskName}
-          taskname={this.state.taskName}
+          placeholder={this.state.placeHolder}
+          value={this.state.taskName}
           onChange={this.handleChange}
         />
         <div className="collapse" id="options">
           <div className="col-xs-offset-5 col-xs-2 text-center well">
-            <input
+            <label> Due Date <input
               type="checkbox"
               id="dueDateTemp"
               onChange={this.handleChange}
+              checked={this.state.dueDate}
             />
-            <input
+            </label>
+            
+            <label> Pomodoro <input
               type="checkbox"
               id="pomodoro"
               onChange={this.handleChange}
-            />
-            <button type="submit" value="Submit" onClick={this.handleSubmit} />
+              checked={this.state.pomodoro}
+            /></label>
+            <button type="submit" id="submit" onClick={this.handleSubmit}>Submit</button>
           </div>
         </div>
       </div>
