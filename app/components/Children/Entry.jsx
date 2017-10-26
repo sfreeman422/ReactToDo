@@ -67,6 +67,7 @@ export default class Entry extends React.Component {
               onChange={this.handleChange}
               checked={this.state.pomodoro}
             /></label>
+            <br />
             <button type="submit" id="submit" onClick={this.handleSubmit}>Submit</button>
           </div>
         </div>

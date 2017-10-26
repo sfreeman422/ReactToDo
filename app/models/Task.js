@@ -1,5 +1,5 @@
 
-module.exports = function (sequelize, Sequelize) {
+module.exports = (sequelize, Sequelize) => {
   const Task = sequelize.define('task', {
     id: {
       autoIncrement: true,

@@ -17,11 +17,23 @@
 	margin: .5% 0%;
 	padding: 1%;
 }
-.taskName{
+#clock{
+	text-align: right;
+}
+.fa-clock-o{
+	text-align: right;
+	color: white;
+	font-size: 24px
+}
+#taskName{
 	text-align: left;
 	color: white;
 }
-
+#taskDueDate{
+	text-align: left;
+	color: white;
+	font-size: 10px;
+}
 #entry{
 	margin-bottom: 1%;
 }

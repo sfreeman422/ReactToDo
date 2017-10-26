@@ -13,13 +13,22 @@ class Task extends React.Component {
     console.log(`You have clicked on ${event.target}`);
   }
   handleMouseOver(event) {
-    console.log(`You have moused over ${event.target.id}`);
+    console.log(`You have clicked on ${event.target.id}`);
+    // The below works but it rocks all the taskContainers,
+    // We need to limit to one task only. 
+   // window.animatelo.jello('#taskContainer');
   }
   render() {
     return (
-      <div className="row col-xs-offset-4 col-xs-4" id="taskContainer">
-        <div className="panel" id="task" onMouseOver={this.handleMouseOver}>
-          <p className="taskName" id="taskName">{this.props.taskMessage}</p>
+      <div className="row col-xs-offset-4 col-xs-4" id="taskContainer" onMouseOver={this.handleMouseOver}>
+        <div className="col-xs-12" id="task">
+          <div className="col-xs-10" id="taskMessage">
+            <p id="taskName">{this.props.taskMessage}</p>
+            <p id="taskDueDate">{this.props.dueDate}</p>
+          </div>
+          <div className="col-xs-2" id="clock">
+            <i className="fa fa-clock-o" aria-hidden="true" />
+          </div>
         </div>
       </div>
     );
