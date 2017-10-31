@@ -14,9 +14,6 @@ class Task extends React.Component {
   }
   handleMouseOver(event) {
     console.log(`You have clicked on ${event.target.id}`);
-    // The below works but it rocks all the taskContainers,
-    // We need to limit to one task only. 
-   // window.animatelo.jello('#taskContainer');
   }
   render() {
     return (

@@ -37,9 +37,19 @@ export default class Entry extends React.Component {
       pomodoro: false,
       dueDate: false,
     });
-    console.log(`Task would have been: ${this.state.taskName}`);
-    console.log(`Due Date: ${this.state.dueDate}`);
-    console.log(`Pomodoro: ${this.state.pomodoro}`);
+    fetch('http://localhost:3000/api/tasks', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        taskName: this.state.taskName,
+        dueDate: '04/04/04',
+        timeSpent: 0,
+        taskOwner: 1,
+      }),
+    }).then(response => console.log(response));
   }
   render() {
     return (
@@ -60,7 +70,7 @@ export default class Entry extends React.Component {
               checked={this.state.dueDate}
             />
             </label>
-            
+
             <label> Pomodoro <input
               type="checkbox"
               id="pomodoro"

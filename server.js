@@ -7,18 +7,12 @@ const passport = require('passport');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const db = require('./config/database.js');
-const routes = require('./app/routes/routes.js');
-const User = require('./app/models/User.js');
-const Task = require('./app/models/Task.js');
 
 const sequelize = new Sequelize(db.database, db.user, db.password, {
   host: db.hostname,
   dialect: db.dialect,
 });
 
-// Imports the models into our sequelize instance. 
-User(sequelize, Sequelize);
-Task(sequelize, Sequelize);
 // Connect to our MySQL Database. 
 sequelize
   .authenticate()
@@ -28,7 +22,35 @@ sequelize
       console.log(`Unable to connect! \n Error: ${err}`);
     }
   });
+const User = sequelize.define('user', {
+  userName: {
+    type: Sequelize.STRING,
+  },
+  email: {
+    type: Sequelize.STRING,
+  },
+  password: {
+    type: Sequelize.STRING,
+  },
+});
 
+User.sync({ force: true });
+
+const Task = sequelize.define('task', {
+  taskName: {
+    type: Sequelize.STRING,
+  },
+  dueDate: {
+    type: Sequelize.DATE,
+  },
+  taskOwner: {
+    type: Sequelize.BIGINT,
+  },
+  timeSpent: {
+    type: Sequelize.BIGINT,
+  },
+});
+Task.sync({ force: true });
 // Instantiate express and port. 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -42,7 +64,40 @@ app.use(methodOverride('_method'));
 app.use(session({ secret: 'pomotodo' }));
 app.use(passport.initialize());
 app.use(passport.session());
-routes(app, passport);// Load our auth routes into express/passport.  
+// Initial route to load the page.  
+app.get('/', (req, res) => {
+  res.sendFile('../../public/index.html');
+});
+
+// Route to get all tasks for a specific user. 
+app.get('/api/tasks', (req, res) => {
+  const tasks = ['Do a thing', 'Do another thing', 'Do some more things'];
+  console.log(req.body);
+  res.json(tasks);
+});
+
+// Post route for the entry of tasks
+app.post('/api/tasks', (req, res) => {
+  console.log(req.body);
+  Task.create({
+    taskName: req.body.taskName,
+    taskOwner: req.body.taskOwner,
+    dueDate: req.body.dueDate,
+    timeSpent: req.body.timeSpent,
+  }).then(task => console.log(task));
+});
+
+// Put route for update of tasks.
+app.put('/api/tasks', (req, res) => {
+  console.log(req.body);
+  res.send(200, 'Task successfully updated.');
+});
+
+// Delete route for deletion of tasks. 
+app.delete('/api/tasks', (req, res) => {
+  console.log(req.body);
+  res.end(202, `Task ${req.body.task.is} successfully removed.`);
+});
 
 // Listen to the port.
 app.listen(PORT, () => {
